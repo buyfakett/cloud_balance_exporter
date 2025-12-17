@@ -1,0 +1,4 @@
+server:
+  port: 8081
+  zone: Aisa/Shanghai
+  scrape_interval: 60  # in minutes
