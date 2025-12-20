@@ -1,10 +1,11 @@
 package config
 
 import (
-	"flag"
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/spf13/pflag"
 )
 
 // CLIConfig 表示命令行配置
@@ -19,15 +20,17 @@ var CliCfg CLIConfig
 // ParseCLI 解析命令行参数
 func ParseCLI() {
 	// 定义命令行参数
-	flag.BoolVar(&CliCfg.ShowVersion, "version", false, "显示版本信息")
-	flag.BoolVar(&CliCfg.ShowVersion, "v", false, "显示版本信息 (简写)")
-	flag.StringVar(&CliCfg.ConfigFile, "config", "", "配置文件路径")
-	flag.StringVar(&CliCfg.ConfigFile, "c", "", "配置文件路径 (简写)")
-	flag.IntVar(&CliCfg.Port, "port", 8888, "服务端口")
-	flag.IntVar(&CliCfg.Port, "p", 8888, "服务端口 (简写)")
+	pflag.BoolVarP(&CliCfg.ShowVersion, "version", "v", false, "显示版本信息")
+	pflag.StringVarP(&CliCfg.ConfigFile, "config", "c", "", "配置文件路径")
+	pflag.IntVarP(&CliCfg.Port, "port", "p", 8888, "服务端口")
+
+	if (pflag.Lookup("help") != nil && pflag.Lookup("help").Value.String() == "true") || (len(os.Args) > 1 && os.Args[1] == "help") {
+		pflag.PrintDefaults()
+		os.Exit(0)
+	}
 
 	// 解析命令行参数
-	flag.Parse()
+	pflag.Parse()
 }
 
 // ShowVersionAndExit 显示版本信息并退出

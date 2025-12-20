@@ -12,7 +12,7 @@ var (
 			Name: "cloud_account_balance",
 			Help: "Cloud provider account balance",
 		},
-		[]string{"account_type", "name", "currency"},
+		[]string{"account_type", "name", "threshold"},
 	)
 	// 账户余额状态指标 (1=正常, 0=异常)
 	accountBalanceStatus = prometheus.NewGaugeVec(
@@ -20,7 +20,7 @@ var (
 			Name: "cloud_account_balance_status",
 			Help: "Cloud provider account balance status (1=normal, 0=abnormal)",
 		},
-		[]string{"account_type", "name"},
+		[]string{"account_type", "name", "threshold"},
 	)
 )
 
@@ -30,11 +30,11 @@ func Register() {
 }
 
 // SetAccountBalance 设置账户余额指标
-func SetAccountBalance(accountType, name, currency string, amount float64) {
-	accountBalance.WithLabelValues(accountType, name, currency).Set(amount)
+func SetAccountBalance(accountType, name, threshold string, amount float64) {
+	accountBalance.WithLabelValues(accountType, name, threshold).Set(amount)
 }
 
 // SetAccountBalanceStatus 设置账户余额状态指标 (1=正常, 0=异常)
-func SetAccountBalanceStatus(accountType, name string, status float64) {
-	accountBalanceStatus.WithLabelValues(accountType, name).Set(status)
+func SetAccountBalanceStatus(accountType, name string, threshold string, status float64) {
+	accountBalanceStatus.WithLabelValues(accountType, name, threshold).Set(status)
 }
