@@ -57,12 +57,34 @@ type VolcengineCloudConfig struct {
 	// 火山引擎特定配置字段将在这里添加
 }
 
+// BaiduCloudConfig 表示百度云特定配置
+type BaiduCloudConfig struct {
+	Name             string  `mapstructure:"name"`
+	AccessKey        string  `mapstructure:"access_key"`
+	SecretKey        string  `mapstructure:"secret_key"`
+	Enabled          bool    `mapstructure:"enabled"`
+	BalanceThreshold float64 `mapstructure:"balance_threshold"`
+	// 百度云特定配置字段将在这里添加
+}
+
+// JdcloudCloudConfig 表示京东云特定配置
+type JdcloudCloudConfig struct {
+	Name             string  `mapstructure:"name"`
+	AccessKey        string  `mapstructure:"access_key"`
+	SecretKey        string  `mapstructure:"secret_key"`
+	Enabled          bool    `mapstructure:"enabled"`
+	BalanceThreshold float64 `mapstructure:"balance_threshold"`
+	// 京东云特定配置字段将在这里添加
+}
+
 // CloudConfig 表示云提供商配置
 type CloudConfig struct {
 	Huawei     []HuaweiCloudConfig     `mapstructure:"huawei"`
 	Alibaba    []AlibabaCloudConfig    `mapstructure:"alibaba"`
 	Tencent    []TencentCloudConfig    `mapstructure:"tencent"`
 	Volcengine []VolcengineCloudConfig `mapstructure:"volcengine"`
+	Baidu      []BaiduCloudConfig      `mapstructure:"baidu"`
+	Jdcloud    []JdcloudCloudConfig    `mapstructure:"jdcloud"`
 }
 
 // AppConfig 表示整个应用程序配置

@@ -1,6 +1,6 @@
 <h1 style="text-align: center;">Cloud Balance Exporter</h1>
 
-一个支持多云平台账户余额监控的 Prometheus 导出器，支持阿里云、华为云、腾讯云和火山引擎。
+一个支持多云平台账户余额监控的 Prometheus 导出器，支持阿里云、华为云、腾讯云、火山引擎、百度智能云和京东云。
 
 ## 功能特性
 
@@ -8,6 +8,8 @@
 - 华为云余额监控  
 - 腾讯云余额监控
 - 火山引擎余额监控
+- 百度智能云余额监控
+- 京东云余额监控
 - 多账户支持
 - 余额阈值告警
 - Prometheus 指标导出
@@ -48,6 +50,22 @@ cloud:
     - name: "volcengine-account-1"
       access_key: "你的火山引擎AccessKey"
       secret_key: "你的火山引擎SecretKey"
+      enabled: true
+      balance_threshold: 1000.0  # 余额告警阈值（元）
+
+  # 百度智能云配置
+  baidu:
+    - name: "baidu-account-1"
+      access_key: "你的百度智能云AccessKey"
+      secret_key: "你的百度智能云SecretKey"
+      enabled: true
+      balance_threshold: 1000.0  # 余额告警阈值（元）
+
+  # 京东云配置
+  jdcloud:
+    - name: "jdcloud-account-1"
+      access_key: "你的京东云AccessKey"
+      secret_key: "你的京东云SecretKey"
       enabled: true
       balance_threshold: 1000.0  # 余额告警阈值（元）
 ```
