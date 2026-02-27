@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/alibabacloud-go/bssopenapi-20171214/v2/client"
-	opopenapi "github.com/alibabacloud-go/darabonba-openapi/client"
+	"github.com/alibabacloud-go/bssopenapi-20171214/v6/client"
+	opopenapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	"github.com/alibabacloud-go/tea/tea"
 )
 

@@ -1,18 +1,18 @@
 module cloud_balance_exporter
 
-go 1.25.5
+go 1.26.0
 
 require (
-	github.com/alibabacloud-go/bssopenapi-20171214/v2 v2.0.6
-	github.com/alibabacloud-go/darabonba-openapi v0.2.1
+	github.com/alibabacloud-go/bssopenapi-20171214/v6 v6.1.1
+	github.com/alibabacloud-go/darabonba-openapi/v2 v2.1.15
 	github.com/alibabacloud-go/tea v1.4.0
-	github.com/huaweicloud/huaweicloud-sdk-go-v3 v0.1.184
+	github.com/huaweicloud/huaweicloud-sdk-go-v3 v0.1.187
 	github.com/prometheus/client_golang v1.23.2
 	github.com/spf13/pflag v1.0.10
 	github.com/spf13/viper v1.21.0
-	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/billing v1.3.20
-	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.3.33
-	github.com/volcengine/volcengine-go-sdk v1.2.7
+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/billing v1.3.42
+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.3.49
+	github.com/volcengine/volcengine-go-sdk v1.2.15
 )
 
 require (
@@ -20,9 +20,7 @@ require (
 	github.com/alibabacloud-go/debug v1.0.1 // indirect
 	github.com/alibabacloud-go/endpoint-util v1.1.1 // indirect
 	github.com/alibabacloud-go/openapi-util v0.1.2 // indirect
-	github.com/alibabacloud-go/tea-utils v1.4.5 // indirect
 	github.com/alibabacloud-go/tea-utils/v2 v2.0.9 // indirect
-	github.com/alibabacloud-go/tea-xml v1.1.3 // indirect
 	github.com/aliyun/credentials-go v1.4.10 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cenkalti/backoff/v4 v4.3.0 // indirect
