@@ -45,7 +45,6 @@ func collectAlibabaMetrics(cfg config.AlibabaCloudConfig) {
 			threshold,
 			status,
 		)
+		log.Printf("成功收集阿里云余额指标，账户 %s ,余额为 %.2f", cfg.Name, balance.Amount)
 	}
-
-	log.Printf("成功收集阿里云余额指标，账户 %s", cfg.Name)
 }

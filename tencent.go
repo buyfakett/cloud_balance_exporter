@@ -45,7 +45,6 @@ func collectTencentMetrics(cfg config.TencentCloudConfig) {
 			threshold,
 			status,
 		)
+		log.Printf("成功收集腾讯云余额指标，账户 %s ,余额为 %.2f", cfg.Name, balance.Amount)
 	}
-
-	log.Printf("成功收集腾讯云余额指标，账户 %s", cfg.Name)
 }
