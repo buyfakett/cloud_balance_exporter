@@ -45,6 +45,6 @@ func collectJdcloudMetrics(cfg config.JdcloudCloudConfig) {
 			threshold,
 			status,
 		)
-		log.Printf("成功收集京东云余额指标，账户 %s ,余额为 %s", cfg.Name, fmt.Sprint(balance.Amount))
+		log.Printf("成功收集京东云余额指标，账户 %s ,余额为 %.2f", cfg.Name, balance.Amount)
 	}
 }

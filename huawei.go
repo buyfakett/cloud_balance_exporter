@@ -45,6 +45,6 @@ func collectHuaweiMetrics(cfg config.HuaweiCloudConfig) {
 			threshold,
 			status,
 		)
-		log.Printf("成功收集华为云余额指标，账户 %s ,余额为 %s", cfg.Name, fmt.Sprint(balance.Amount))
+		log.Printf("成功收集华为云余额指标，账户 %s ,余额为 %.2f", cfg.Name, balance.Amount)
 	}
 }
