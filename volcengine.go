@@ -45,7 +45,6 @@ func collectVolcengineMetrics(cfg config.VolcengineCloudConfig) {
 			threshold,
 			status,
 		)
+		log.Printf("成功收集火山引擎余额指标，账户 %s ,余额为 %s", cfg.Name, fmt.Sprint(balance.Amount))
 	}
-
-	log.Printf("成功收集火山引擎余额指标，账户 %s", cfg.Name)
 }
