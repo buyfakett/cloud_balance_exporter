@@ -22,28 +22,28 @@ jobs:
     permissions:
       packages: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: ${{ github.repository }}
           token: ${{ secrets.RELEASE_TOKEN }}
       - run: git fetch --unshallow --quiet --tags --force
 
-      - uses: actions/setup-go@v6.3.0
+      - uses: actions/setup-go@v7
         with:
           go-version-file: go.mod
           check-latest: true
 
       - name: Install UPX
-        uses: crazy-max/ghaction-upx@v3
+        uses: crazy-max/ghaction-upx@v4
         with:
           install-only: true
 
       - run: /bin/bash -x build.sh ${{ github.ref_name }}
 
       - name: Install GH CLI
-        uses: dev-hanz-ops/install-gh-cli-action@v0.2.1
+        uses: dev-hanz-ops/install-gh-cli-action@v0.3.0
         with:
-          gh-cli-version: 2.71.2
+          gh-cli-version: 2.104.0
 
       - name: create github release
         run: |
@@ -65,17 +65,17 @@ jobs:
     permissions:
       packages: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: ${{ github.repository }}
           token: ${{ secrets.RELEASE_TOKEN }}
       - run: git fetch --unshallow --quiet --tags --force
 
-      - uses: docker/setup-qemu-action@v3
-      - uses: docker/setup-buildx-action@v3
+      - uses: docker/setup-qemu-action@v4
+      - uses: docker/setup-buildx-action@v4
 
       - name: Docker Metadata
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         id: meta
         with:
           images: ${{ env.IMAGE_NAME }}
@@ -89,13 +89,13 @@ jobs:
             prefix=${{ env.IS_DEV_RELEASE == 'true' && 'dev-' || '' }}
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: build rootful docker image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           platforms: linux/amd64,linux/arm64
